@@ -80,7 +80,7 @@ def func(labels):
 
 if __name__ == '__main__':
     # Create a simulation cluster dataset
-    datas = sample_create.txt2matrix('C:\\Users\\11041\\Desktop\\eye\\fenlei\\collect_clasi_train.txt')
+    datas = sample_create.txt2matrix('collect_clasi_train.txt')
     rcParams.update(config)
     datas = datas[:, 0:2]
     Ks = range(1, 10)

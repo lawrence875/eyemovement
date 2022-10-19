@@ -5,7 +5,7 @@ import sample_create
 
 if __name__ == '__main__':
     ''' task 0 load data '''
-    datas= sample_create.txt2matrix('C:\\Users\\11041\\Desktop\\eye\\fenlei\\collect_clasi_train.txt')
+    datas= sample_create.txt2matrix('collect_clasi_train.txt')
     datas = datas[:, 0:3]
     # datas = datas.reshape(-1, 1)
     # print(datas)
