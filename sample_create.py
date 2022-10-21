@@ -140,6 +140,18 @@ def classification_v(states, datas):
     df.to_csv('classification_results.csv', encoding="utf_8_sig")
 
 
+def classsification_result(datas, result):
+    a = []
+    for key in result:
+        a = a + result[key]
+    a = np.array(a)
+    a = a[:, np.newaxis]
+    datas_states = np.hstack((datas, a))
+    df = pd.DataFrame(datas_states, columns=['x', 'y', 'Velocity', 'Classification results'])
+    df.to_csv('ternary_classification_results.csv', encoding="utf_8_sig")
+
+
+
 def classification_round_1(datas, n_compoments, states):
     classification_round_1 = list(states[1])
     first_index_of_states = np.zeros(n_compoments+1)

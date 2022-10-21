@@ -30,6 +30,7 @@ if __name__ == '__main__':
     gaze_states_info = sample_create.classification_round_2(states_info, 0)
     print(gaze_states_info)
     dataplot.gaze_point_classification_plot(states_info, gaze_states_info, 2)
-    dataplot.gazepoint_classification_final_results(states_info, gaze_states_info)
+    result = dataplot.gazepoint_classification_final_results(states_info, gaze_states_info)
+    sample_create.classsification_result(datas, result)
     print("-----------------stop----------------------")
     # sample_create.classification_xyv(states, datas)

@@ -114,6 +114,7 @@ def gazepoint_classification_final_results(states_info, gaze_states_info):
     x = {}
     y = {}
     z = {}
+    result = {}
     for key in states_info:
         position3d = np.array(list(states_info[key]))
         x[key] = position3d[:, 0]
@@ -127,6 +128,7 @@ def gazepoint_classification_final_results(states_info, gaze_states_info):
         index_0 = []
         index_1 = []
         index_2 = []
+        index_ternary = np.zeros(len(x1))
         for index, i in enumerate(np.array(list(gaze_states_info[key]))):
             if i == 0:
                 index_0.append(index)
@@ -174,9 +176,14 @@ def gazepoint_classification_final_results(states_info, gaze_states_info):
         x_2 = x1[index_sc]
         y_2 = y1[index_sc]
         z_2 = z1[index_sc]
+        index_ternary[index_fx] = 0
+        index_ternary[index_sp] = 1
+        index_ternary[index_sc] = 2
+        result[key] = list(index_ternary)
         ax.scatter(x_0, y_0, z_0, zdir="z", c="#00DDAA", marker="x", s=40)
         ax.scatter(x_1, y_1, z_1, zdir="z", c="#FF5511", marker="^", s=40)
         ax.scatter(x_2, y_2, z_2, zdir="z", c="#0000CD", marker=".", s=40)
     fig.add_axes(ax)
     ax.set(xlabel="X(0~1)", ylabel="Y(0~1)", zlabel="V")
     plt.show()
+    return result
